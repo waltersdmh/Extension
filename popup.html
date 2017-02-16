@@ -27,14 +27,16 @@
 
 	h1 {
 		font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-		font-size: 2.5em;
+		font-size: 2em;
 		text-align: center;
 		padding-top: 0px;
 		margin-top: 0px;
+    margin-bottom: 20px;
+
 	}
 
 table, th, tr, td {
-   border: 1px solid black;
+   border: 0px solid black;
    padding-bottom: 10px;
 }
 
@@ -48,6 +50,11 @@ padding: 5px;
     background-color: #FFFF88;
 }
 
+#message_details{
+  padding-top: 0px;
+  text-align: center;
+}
+
 
 .good {
   background-color: #b3ffcc;
@@ -56,6 +63,9 @@ padding: 5px;
 .bad {
   background-color: #ffb3b3;
   }
+.send {
+  float: right;
+}
 
 
 
@@ -70,7 +80,6 @@ padding: 5px;
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://rawgit.com/bartaz/sandbox.js/master/jquery.highlight.js"></script>
     <script src="popup.js"></script>
-}
 
 </head>
 
@@ -85,13 +94,11 @@ padding: 5px;
     <h1>Amazon Reviews Search Engine</h1>
 <!--    <button id="click-this">CLICK ME</button>
    <button id="getProductCode">getCode</button> -->
-   <button id="getProduct">getProduct</button>
+   <!-- <button id="getProduct">getProduct</button>
    <button id="get reviews">get reviews></button>
-   <button id="deletestuff">deleteStuff></button>
+   <button id="deletestuff">deleteStuff></button> -->
 
-
-<h1>connect to localhost</h1>
-    <div id="connection_details">
+  <!--   <div id="connection_details">
       <label for="host">host:</label>
       <input type="text" id="host" value="localhost" style="background:#ff0000;"/><br />
       <label for="port">port:</label>
@@ -99,13 +106,16 @@ padding: 5px;
       <label for="uri">uri:</label>
       <input type="text" id="uri" value="/ws" style="background:#ff0000;"/><br />
       <input type="submit" id="open" value="open" />
-    </div>
+    </div> -->
     <div id="message_details">
-        </br></br>
-        <label for="message">message:</label>
-        <input type="text" id="message" value="keywords to search"/><br />
-        <input type="submit" id="send" value="send" />
+        <label for="message">Search Customer Reviews:</label>
+        <input type="text" id="message" value=""/>
+        <input type="submit" id="send" value="Search" />
     </div>
+
+
+
+
     <div id="terminal">
         
     </div>
@@ -114,16 +124,6 @@ padding: 5px;
       <table id="table">
       </table>
  
-
-
-
-
-
-
-
-
-
-
 
   </body>
 
