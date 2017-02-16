@@ -14,7 +14,15 @@ function getCurrentTabUrl(callback) {
 
 
 
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+
+document.getElementById('deletestuff').addEventListener('click', clickHandler);
 
 getCurrentTabUrl(function(url) {
     
@@ -45,18 +53,44 @@ getCurrentTabUrl(function(url) {
            
           // Handle incoming websocket message callback
           ws.onmessage = function(evt) {
+            
      //       log("Message Received: " + evt.data)
             var sep = "\",";
             reviews = evt.data.split(sep)
-            
+            clickHandler();
             for (i = 0; i < reviews.length; i++){
-              var para = document.createElement("P");
-              var t = document.createTextNode(reviews[i]);
-              para.appendChild(t);                                          // Append the text to <p>
-              document.body.appendChild(para);
-              
+      //        var para = document.createElement("tr");
+       //       var t = document.createTextNode(reviews[i]);     
+      //        para.appendChild(t);     
 
+var table = document.getElementById("table");
+           var row = table.insertRow(i);
+           var cell = row.insertCell(0);
+           cell.innerHTML = reviews[i];
+     //      $("table").highlight(["watch", "good", "bad"]);
+
+    //      console.log(strings);
+
+         
+                                          // Append the text to <p>
+           //   document.getElementById("test").appendChild(para);
+          //    var span = $("test");
+         //     span.html(span.html().replace(/#camera/g, '<span style="color: red">$&</span>'));
+              
             }
+
+            var strings = $("#message").val();
+            words = strings.toString();
+            var array = words.split(" ");
+
+
+             for (i = 0; i < array.length; i++){
+           $("table").highlight(array[i]);  
+          }
+
+
+          $("table").highlight("good", { className: 'good' });
+          $("table").highlight("bad", { className: 'bad' });
                                    // Create a <p> element
        // Create a text node
 
@@ -91,6 +125,7 @@ getCurrentTabUrl(function(url) {
         $("#send").click(function(evt) {
             log("Sending Message: "+$("#message").val());
             ws.send($("#message").val()+","+url);
+            
         });
  
       });
@@ -98,6 +133,13 @@ getCurrentTabUrl(function(url) {
 
 
 });
+
+function clickHandler() {
+  table = document.getElementById("table");
+  while(table.rows.length > 0) {
+  table.deleteRow(0);
+}
+}
 
 
 /*

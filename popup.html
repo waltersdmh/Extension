@@ -25,6 +25,40 @@
 		table-layout: auto;
 	}
 
+	h1 {
+		font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+		font-size: 2.5em;
+		text-align: center;
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+
+table, th, tr, td {
+   border: 1px solid black;
+   padding-bottom: 10px;
+}
+
+tr:nth-child(even) {
+background-color: #e6e6e6; 
+color: #000000;
+padding: 5px;
+}
+
+.highlight {
+    background-color: #FFFF88;
+}
+
+
+.good {
+  background-color: #b3ffcc;
+  }
+
+.bad {
+  background-color: #ffb3b3;
+  }
+
+
+
     </style>
 
     <!--
@@ -34,24 +68,26 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://rawgit.com/bartaz/sandbox.js/master/jquery.highlight.js"></script>
     <script src="popup.js"></script>
+}
+
+</head>
 
 
 
-  </head>
 
 
+  <body>
 
 
-
-    <div id="status"></div>
+ <div id="status"></div>
     <h1>Amazon Reviews Search Engine</h1>
-    <p1 id="test">test text here.</p1>
 <!--    <button id="click-this">CLICK ME</button>
    <button id="getProductCode">getCode</button> -->
    <button id="getProduct">getProduct</button>
    <button id="get reviews">get reviews></button>
-
+   <button id="deletestuff">deleteStuff></button>
 
 
 <h1>connect to localhost</h1>
@@ -75,9 +111,23 @@
     </div>
 
 
+      <table id="table">
+      </table>
+ 
+
+
+
+
+
+
+
+
 
 
 
   </body>
+
+
+
 </html>
 
