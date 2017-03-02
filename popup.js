@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Handle incoming websocket message callback
       ws.onmessage = function(evt) {
         evt.preventDefault();
-
+        hidden = document.getElementById("hidden");
+        hidden.style.display = "none";
         //       log("Message Received: " + evt.data)
         var sep = "\",";
         reviews = evt.data.split(sep)
@@ -109,7 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // Send websocket message function
       $("#send").click(function(evt) {
       //  log("Sending Message: " + $("#message").val());
-        ws.send($("#message").val() + "," + url);
+
+      //get the chosen filter option variables from the form.
+      var ratings = document.getElementById("star")
+      var rating = ratings.options[ratings.selectedIndex].value;
+      var type = document.getElementById("verified")
+      var chosenType = type.options[type.selectedIndex].value;
+
+        ws.send($("#message").val() + "," + url + "," + rating + "," + chosenType);
+      //set loading container active
+       hidden = document.getElementById("hidden");
+       hidden.style.display = "block";
       })
     });
 
