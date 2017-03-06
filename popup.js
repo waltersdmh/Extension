@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
       var ws;
-      var host = "localhost";
+      var host = "192.168.0.19";
       var port = "8888"
       var uri = "/ws"
 
