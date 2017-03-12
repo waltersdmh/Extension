@@ -6,7 +6,7 @@
  -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Amazon Reviews Filter</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -36,6 +36,9 @@
     margin-bottom: 20px;
 
 	}
+table {
+  margin-top: 50px;
+}
 
 table, th, tr, td {
    border: 0px solid black;
@@ -183,6 +186,21 @@ svg rect{
   display: none;
 }
 
+#settings{
+  padding:5px;
+  text-align: left;
+  display: block;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  vertical-align: middle;
+}
+#settings label{
+  padding-right: 30px;
+  border-top: 5px;
+}
+
+
+
 }
 
     </style>
@@ -207,7 +225,7 @@ svg rect{
 
 
  <div id="status"></div>
-    <h1>Reviews Search Engine</h1>
+    <h1>Amazon Reviews Filter</h1>
 <!--    <button id="click-this">CLICK ME</button>
    <button id="getProductCode">getCode</button> -->
    <!-- <button id="getProduct">getProduct</button>
@@ -224,13 +242,12 @@ svg rect{
       <input type="submit" id="open" value="open" />
     </div> -->
 
-  
 
     <div id="message_details">
         <label for="message"><strong>Filter By:</strong></label>
 
 
-<select id="verified">
+        <select id="verified">
           <option value="1">All reviews</option>
           <option value="2">Verified purchases only</option>
         </select>
@@ -247,9 +264,21 @@ svg rect{
      
         <input type="submit" id="send" value="Search" />
         <input type="text" id="message" value="" placeholder="Keywords" />
+<div id="settings">
+              <input type="checkbox" name="length" value="1" id="revLength"><label for="length"> I prefer longer reviews</label>
+              <input type="checkbox" name="highlight" value="1" id="isHighlighted"><label for="highlight"> Highlight Keywords</label>
+
+</div>
+<hr>
+<br>
+<br>
     </div>
 
+
 <div id="hidden">
+<br>
+<br>
+<br>
 <div id="container">
 
   <div class="loader loader--style1" title="0">

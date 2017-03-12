@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
           var row = table.insertRow(i);
           var cell = row.insertCell(0);
           cell.innerHTML = reviews[i];
+
+        
           //      $("table").highlight(["watch", "good", "bad"]);
 
           //      console.log(strings);
@@ -70,21 +72,23 @@ document.addEventListener('DOMContentLoaded', function() {
         words = strings.toString();
         var array = words.split(" ");
 
+        var highlighter = document.getElementById("isHighlighted")
+        if (highlighter.checked) {
 
         for (i = 0; i < array.length; i++) {
           $("table").highlight(array[i]);
         }
 
 
-        $("table").highlight(["good", "great", "nice", "thankful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
+        $("table").highlight(["good", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
           className: 'good'
         });
-        $("table").highlight(["bad", "wrong", "awful", "delightful", "dislike", "annoyed", "hopeless", "sad"], {
+        $("table").highlight(["bad", "wrong", "awful", "terrible", "delightful", "dislike", "annoyed", "hopeless", "sad"], {
           className: 'bad'
         });
         // Create a <p> element
         // Create a text node
-      };
+      };}
 
       // Close Websocket callback
       ws.onclose = function(evt) {
@@ -114,10 +118,16 @@ document.addEventListener('DOMContentLoaded', function() {
       //get the chosen filter option variables from the form.
       var ratings = document.getElementById("star")
       var rating = ratings.options[ratings.selectedIndex].value;
+
       var type = document.getElementById("verified")
       var chosenType = type.options[type.selectedIndex].value;
 
-        ws.send($("#message").val() + "," + url + "," + rating + "," + chosenType);
+      var revlen = document.getElementById("revLength")
+      var lenSet = "0";
+      if (revlen.checked) lenSet = "1";
+
+
+        ws.send($("#message").val() + "," + url + "," + rating + "," + chosenType + "," + lenSet);
       //set loading container active
        hidden = document.getElementById("hidden");
        hidden.style.display = "block";
