@@ -34,8 +34,17 @@
 		padding-top: 0px;
 		margin-top: 0px;
     margin-bottom: 20px;
+    width: 100%;
+    position: relative;
 
 	}
+
+img {
+  max-width: 50px;
+  float: right;
+  vertical-align: middle;
+}
+
 table {
   margin-top: 50px;
 }
@@ -205,44 +214,14 @@ svg rect{
 
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://rawgit.com/bartaz/sandbox.js/master/jquery.highlight.js"></script>
     <script src="popup.js"></script>
 
 </head>
-
-
-
-
-
   <body>
-
-
  <div id="status"></div>
-    <h1>Amazon Reviews Filter</h1>
-<!--    <button id="click-this">CLICK ME</button>
-   <button id="getProductCode">getCode</button> -->
-   <!-- <button id="getProduct">getProduct</button>
-   <button id="get reviews">get reviews></button>
-   <button id="deletestuff">deleteStuff></button> -->
-
-  <!--   <div id="connection_details">
-      <label for="host">host:</label>
-      <input type="text" id="host" value="localhost" style="background:#ff0000;"/><br />
-      <label for="port">port:</label>
-      <input type="text" id="port" value="8888" style="background:#ff0000;"/><br />
-      <label for="uri">uri:</label>
-      <input type="text" id="uri" value="/ws" style="background:#ff0000;"/><br />
-      <input type="submit" id="open" value="open" />
-    </div> -->
-
-
+    <h1><img src="icon.png" alt="logo" />Amazon Review Fitler</h1>
     <div id="message_details">
         <label for="message"><strong>Filter By:</strong></label>
 
@@ -251,8 +230,6 @@ svg rect{
           <option value="1">All reviews</option>
           <option value="2">Verified purchases only</option>
         </select>
-
-
         <select id="star">
           <option value="6">All stars</option>
           <option value="5">5 star only</option>
@@ -302,10 +279,6 @@ svg rect{
 </div>
 
 </div>
-
-
-
-
     <div id="terminal">
         
     </div>
