@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hidden = document.getElementById("hidden");
         hidden.style.display = "none";
         var sep = "\",";
-        reviews = evt.data.split(sep)
+        reviews = evt.data.split(sep);
         clickHandler();
         for (i = 0; i < reviews.length; i++) {
           var table = document.getElementById("table");
           var row = table.insertRow(i);
           var cell = row.insertCell(0);
-          cell.innerHTML = reviews[i];
+          cell.innerHTML = reviews[i].replace(/["[]/g, '');;
 }
 
         var strings = $("#message").val();
