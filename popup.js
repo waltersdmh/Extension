@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       $("div#message_details").hide()
 
       var ws;
-      var host = "localhost"; //host IP
+      var host = "82.20.252.21"; //host IP
       var port = "8888" //host receiving port
       var uri = "/ws"
 
