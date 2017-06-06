@@ -3,7 +3,7 @@
 
   "name": "Amazon Review Search Engine",
   "description": "Attempt to organise Amazon reviews",
-  "version": "1.4",
+  "version": "1.6",
 
   "browser_action": {
     "default_icon": "icon.png",
