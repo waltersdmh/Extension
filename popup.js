@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         hidden.style.display = "none";
         var sep = "\","; 
         reviews = evt.data.split(sep); //seperate incoming results on comma
-        var numRev = reviews.length;
         clickHandler(); //clear popup.html table
         for (i = 0; i < reviews.length; i++) { //populate popup.html table
           var table = document.getElementById("table");
@@ -47,16 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
           var cell = row.insertCell(0);
           cell.innerHTML = reviews[i].replace(/["[]/g, ''); //replace unrequired symbols that were in the JSON file
 }
- var info = document.getElementById("info");
-info.innerHTML = numRev + " reviews found.";        
-if (numRev > 200)
-{
-   info.innerHTML = "Over 300 reviews found. Try narrowing your search with an additional keyterm or filter";
-}
-        
-
-        
-        
 
         var strings = $("#message").val(); //key-terms
         words = strings.toString();
