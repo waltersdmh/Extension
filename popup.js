@@ -25,13 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //host address and port via websocket connection
       var ws;
-      var host = "192.168.1.12"; //host IP
+      var host = "90.254.160.246"; //host IP
       var port = "8888" //host receiving port
       var uri = "/ws"
 
       // websocket instance
       ws = new WebSocket("ws://" + host + ":" + port + uri);
 
+      
       // on incoming message 
       ws.onmessage = function(evt) {
         evt.preventDefault();
@@ -85,6 +86,7 @@ if (numRev > 200)
 
       // on open
       ws.onopen = function(evt) {
+        console.log("ws.onopen");
         $("div#message_details").show(); //show the controls
       };
 
@@ -92,6 +94,7 @@ if (numRev > 200)
       // on send clicked
       //get filter settings + key-terms
       $("#send").click(function(evt) {
+      console.log("about to send");
       var ratings = document.getElementById("star")
       var rating = ratings.options[ratings.selectedIndex].value;
       var type = document.getElementById("verified")
