@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //host address and port via websocket connection
       var ws;
-      var host = "90.254.160.246"; //host IP
+      var host = "localhost"; //host IP  //90.254.160.246
       var port = "8888" //host receiving port
       var uri = "/ws"
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
           cell.innerHTML = reviews[i].replace(/["[]/g, ''); //replace unrequired symbols that were in the JSON file
 }
  var info = document.getElementById("info");
-info.innerHTML = numRev + " reviews found.";        
+info.innerHTML = numRev-1 + " reviews found.";        
 if (numRev > 200)
 {
    info.innerHTML = "Over 300 reviews found. Try narrowing your search with an additional keyterm or filter";
@@ -69,7 +69,12 @@ if (numRev > 200)
         for (i = 0; i < array.length; i++) {
           $("table").highlight(array[i]);
         }
-        //"good" terms
+}
+
+var highlighter = document.getElementById("isAdj")
+if(highlighter.checked){
+
+//"good" terms
         $("table").highlight(["good", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
           className: 'good'
         });
@@ -77,7 +82,18 @@ if (numRev > 200)
         $("table").highlight(["bad", "wrong", "awful", "terrible", "delightful", "dislike", "annoyed", "hopeless", "sad"], {
           className: 'bad'
         });
-      };}
+      ;}
+
+  
+}
+
+        
+
+
+
+
+
+
 
       // close socket 
       ws.onclose = function(evt) {
@@ -94,6 +110,19 @@ if (numRev > 200)
       // on send clicked
       //get filter settings + key-terms
       $("#send").click(function(evt) {
+
+      if (url.includes("www.amazon.co.uk") == false){
+        var info = document.getElementById("info");
+        info.innerHTML="please navigate to an Amazon product page to begin";
+        return;
+      }
+
+      if ($("#message").val() == ""){
+        var info = document.getElementById("info");
+        info.innerHTML="please enter at least one keyword";
+        return;
+      }
+
       console.log("about to send");
       var ratings = document.getElementById("star")
       var rating = ratings.options[ratings.selectedIndex].value;
@@ -103,6 +132,7 @@ if (numRev > 200)
       var lenSet = "0";
       if (revlen.checked) lenSet = "1"
       ws.send($("#message").val() + "," + url + "," + rating + "," + chosenType + "," + lenSet); //concat message
+
       //set loading container active
        hidden = document.getElementById("hidden");
        hidden.style.display = "block";
