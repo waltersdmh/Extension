@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       //host address and port via websocket connection
       var ws;
-      var host = "localhost"; //host IP  //90.254.160.246
+      var host = "wdan96.ddns.net"; //host IP  //90.254.160.246
       var port = "8888" //host receiving port
       var uri = "/ws"
 
