@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // websocket instance
       ws = new WebSocket("ws://" + host + ":" + port + uri);
 
-      
+
+
       // on incoming message 
       ws.onmessage = function(evt) {
         evt.preventDefault();
@@ -87,12 +88,6 @@ if(highlighter.checked){
   
 }
 
-        
-
-
-
-
-
 
 
       // close socket 
@@ -105,6 +100,14 @@ if(highlighter.checked){
         console.log("ws.onopen");
         $("div#message_details").show(); //show the controls
       };
+
+
+//allow enter button to perform search
+$("#message").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#send").click();
+    }
+});
 
 
       // on send clicked
