@@ -101,8 +101,7 @@ if(highlighter.checked){
         $("div#message_details").show(); //show the controls
       };
 
-
-//allow enter button to perform search
+      
 $("#message").keyup(function(event){
     if(event.keyCode == 13){
         $("#send").click();
