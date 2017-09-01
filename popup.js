@@ -14,6 +14,9 @@ function getCurrentTabUrl(callback) {
 
 //on document load
 document.addEventListener('DOMContentLoaded', function() {
+  //focus keywords
+document.getElementById("message".focus();
+  
   getCurrentTabUrl(function(url) {
     // log function for debugging
     log = function(data) {
