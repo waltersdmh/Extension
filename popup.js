@@ -79,14 +79,19 @@ var highlighter = document.getElementById("isAdj")
 if(highlighter.checked){
 
 //"good" terms
-        $("table").highlight(["good", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
-          className: 'good'
-        });
+        
+
         //"bad" terms
-        $("table").highlight(["bad", "wrong", "awful", "terrible", "delightful", "dislike", "annoyed", "hopeless", "sad"], {
+        $("table").highlight(["bad", "wrong", "awful", "rubbish", "crap", "terrible", "dislike", "annoyed", "hopeless", "sad"], {
           className: 'bad'
         });
+
+        $("table").highlight(["not bad", "good", "delightful", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
+          className: 'good'
+        });
+
       ;}
+
 
   
 }
