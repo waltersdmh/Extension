@@ -15,8 +15,20 @@ function getCurrentTabUrl(callback) {
 //on document load
 document.addEventListener('DOMContentLoaded', function() {
   //focus keywords
-document.getElementById("message".focus();
-  
+
+if (location.search !== "?foo") {
+    location.search = "?foo";
+    throw new Error; // load everything on the next page;
+    // stop execution on this page
+}
+
+function onLoad() {
+    document.getElementById("message").focus();
+}
+
+window.onload = onLoad;
+
+
   getCurrentTabUrl(function(url) {
     // log function for debugging
     log = function(data) {
