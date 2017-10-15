@@ -98,7 +98,7 @@ if(highlighter.checked){
           className: 'bad'
         });
 
-        $("table").highlight(["not bad", "good", "delightful", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
+        $("table").highlight(["not bad", "impressive", "easy", "strong", "excellent", "easy", "good", "delightful", "great", "nice", "thankful", "useful", "amazed", "amazing", "fantastic", "glad", "happy", "helpful", "pleased"], {
           className: 'good'
         });
 
